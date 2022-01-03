@@ -1,0 +1,71 @@
+
+@model IEnumerable<Agencia.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index Cliente";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Contato</title>
+    <style>
+    </style>
+</head>
+
+<body>
+  
+  <img class="d-block w-100 mb-5" src="./imagem/cappadociameninabaloes.jpg" class="img-fluid" alt="Imagem responsiva">
+    
+    <form>
+      <div class="container mb-5">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Nome</label>
+          <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">E-mail</label>
+          <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+        </div>
+      </div>
+      <div class="form-group">
+      <label for="exampleFormControlTextarea1">Deixe sua mensagem</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary">Enviar</button>
+    </div>
+    </form>
+
+
+<div class="invisible">
+<p><a asp-action="Create">Faça já o seu cadastro</a></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCliente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCliente">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCliente">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCliente">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</body>
+</html>

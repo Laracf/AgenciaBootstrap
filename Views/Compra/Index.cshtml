@@ -1,0 +1,102 @@
+@model IEnumerable<Agencia.Models.Compra>
+
+@{
+    ViewData["Title"] = "Index Compra";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Promoções</title>
+    <style>
+    </style>
+</head>
+
+<body>
+
+<main class="flex-fill"></main>
+
+<div class="container mb-5" id="price">
+
+<img class="d-block w-100 mb-5" src="imagem\07312020_casal.jpg" class="img-fluid" alt="Imagem responsiva">
+
+  <h1 class="text-center">Melhores Ofertas Nacionais</h1>
+  <p class="text-center mb-5">Aproveite o fim de ano voando com a gente</p>
+
+     <div class="row">
+          <div class="col-lg-4 text-center">
+            <img class="rounded-circle" src="./imagem/onde-viajar-brasil-praia-dos-carneiros-dezembro.jpg" alt="" width="140" height="140">
+            <h2>Tamandaré</h2>
+            <p>Pacotes<br>em até 12x <br> R$ 88,99</p>
+            <p><a class="btn btn-secondary " asp-action="Create" role="button">Compre Aqui &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4 text-center">
+            <img class="rounded-circle" src="imagem\viagem-para-pernambuco-buraco-do-galego.jpg" alt="" width="140" height="140">
+            <h2>Fernando de Noronha</h2>
+             <p>Pacotes<br>em até 12x <br> R$ 206,99</p>
+            <p><a class="btn btn-secondary" asp-action="Create" role="button">Compre Aqui &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4 text-center">
+            <img class="rounded-circle" src="imagem\viagem-arraial-do-cabo.jpg" alt="" width="140" height="140">
+            <h2>Arraial do Cabo</h2>
+             <p>Pacotes<br>em até 12x <br> R$ 32,99</p>
+            <p><a class="btn btn-secondary" asp-action="Create" role="button">Compre Aqui &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+</body>
+
+<body>
+<div class="invisible">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DataIda)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataVolta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FK_IdCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FK_IdDestino)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataIda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataVolta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FK_IdDestino)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCompra">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCompra">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCompra">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+</body>
+</html>
